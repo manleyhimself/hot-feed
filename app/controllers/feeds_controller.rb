@@ -1,10 +1,12 @@
 class FeedsController < ApplicationController
-  before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  before_action :set_feed, only: [ :show, :edit, :update, :destroy]
 
   # GET /feeds
   # GET /feeds.json
   def index
     @feeds = Feed.all
+    session[:hot_list] = Scraper.new.generate_links_array.shuffle
+    # @link = Feed.pop_it_like_its_hot(session[:hot_list])
   end
 
   # GET /feeds/1
