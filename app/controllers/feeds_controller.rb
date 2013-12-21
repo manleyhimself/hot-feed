@@ -6,7 +6,7 @@ class FeedsController < ApplicationController
   def index
     @feeds = Feed.all
     session[:hot_list] = Scraper.new.generate_links_array.shuffle
-    # @link = Feed.pop_it_like_its_hot(session[:hot_list])
+    @link = Feed.pop_it_like_its_hot(session[:hot_list])
   end
 
   # GET /feeds/1

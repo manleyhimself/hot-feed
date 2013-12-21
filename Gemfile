@@ -34,6 +34,8 @@ end
 
 gem "nokogiri", "~> 1.6.1"
 
+gem 'activerecord-session_store'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

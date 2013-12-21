@@ -1,1 +1,3 @@
-<iframe src=<%=Scraper.new.generate_links_array.shuffle.first %> width="1000" height="700"></iframe>
+<p> <%= session[:hot_list].length %>
+
+<iframe src=<%= @link %> width="1000" height="700"></iframe>

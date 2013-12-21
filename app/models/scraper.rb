@@ -8,7 +8,11 @@ class Scraper < ActiveRecord::Base
 
   def generate_links_array
     get_hotness.css("div.hot-item a.hot-headline").collect do |link|
-      "http://www.buzzfeed.com#{link.attr("href")}"
+      if link.attr("href").include?("http")
+        link.attr("href")
+      else
+        "http://www.buzzfeed.com#{link.attr("href")}"
+      end
     end
   end 
 
