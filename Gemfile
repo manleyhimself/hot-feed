@@ -36,6 +36,10 @@ gem "nokogiri", "~> 1.6.1"
 
 gem 'activerecord-session_store'
 
+gem 'delayed_job_active_record'
+
+gem 'clockwork'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -47,6 +51,10 @@ gem 'activerecord-session_store'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 
 group :test, :development do
   gem "rspec-rails"

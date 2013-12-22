@@ -16,6 +16,12 @@ class Scraper < ActiveRecord::Base
     end
   end 
 
+  def assign_links_helper
+    feed = Feed.find(1)
+    feed.destroy_all
+    feed.assign_links_to_feed
+  end
+
   def assign_links_to_feed
     feed = Feed.where(id: 1).first_or_create
     generate_links_array.each do |link|
