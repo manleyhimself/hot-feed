@@ -4,11 +4,13 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feed = Feed.find(1)
+    @feed = Feed.where(id: 1).first_or_create
+    if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
+      Scraper.new.assign_links_to_feed
+    end 
     if !session[:hot_list] || session[:hot_list].length == 0
       session[:hot_list] = @feed.links.shuffle
     end
-    @hot_link = @feed.pop_it_like_its_hot(session[:hot_list])
   end
 
   # GET /feeds/1

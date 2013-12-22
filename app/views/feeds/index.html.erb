@@ -7,7 +7,8 @@
   <br>
   <br>
   <br>
-  <iframe src=<%= @hot_link.path %> width="1000" height="700"></iframe>
+    
+  <iframe src=<%= @feed.pop_it_like_its_hot(session[:hot_list]).path %> width="1000" height="700"></iframe>
   <% if session[:hot_list].length == 0 %>
     <% session[:hot_list] = @feed.links.shuffle %>
   <% end %>
