@@ -19,7 +19,7 @@ class Scraper < ActiveRecord::Base
   def assign_links_helper
     feed = Feed.where(id: 1).first_or_create
     feed.links.destroy_all
-    feed.assign_links_to_feed
+    self.assign_links_to_feed
   end
 
   def assign_links_to_feed
