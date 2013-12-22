@@ -5,6 +5,5 @@ require 'clockwork'
 
 include Clockwork
 
-@feed = Feed.where(id: 1).first_or_create
 
-every(1.minutes, 'Scrape BuzzFeed') { Delayed::Job.enqueue @feed.assign_links_helper }
+every(1.minutes, 'Scrape BuzzFeed') { Delayed::Job.enqueue Scraper.new.assign_links_helper }
