@@ -1,3 +1,14 @@
-<p> <%= session[:hot_list].length %>
+<%= javascript_include_tag "application" %>
+<p> <%=  session[:hot_list].length %> </p>
 
-<iframe src=<%= @link %> width="1000" height="700"></iframe>
+<button id="refresh-button"> next </button>
+<div id="hot-div">
+  <p> <%=  session[:hot_list].length %> </p>
+  <br>
+  <br>
+  <br>
+  <iframe src=<%= @hot_link.path %> width="1000" height="700"></iframe>
+  <% if session[:hot_list].length == 0 %>
+    <% session[:hot_list] = @feed.links.shuffle %>
+  <% end %>
+</div>

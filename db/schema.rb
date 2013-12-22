@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131221165805) do
+ActiveRecord::Schema.define(version: 20131222050918) do
 
   create_table "feeds", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "links", force: true do |t|
+    t.integer  "feed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "path"
+  end
+
+  add_index "links", ["feed_id"], name: "index_links_on_feed_id"
 
   create_table "scrapers", force: true do |t|
     t.datetime "created_at"
