@@ -7,6 +7,7 @@ class FeedsController < ApplicationController
     @feed = Feed.where(id: 1).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed)
+      redirect_to action: 'index'
     end 
     if !session[:hot_list] || session[:hot_list].length == 0
       session[:hot_list] = @feed.links.shuffle
@@ -17,6 +18,7 @@ class FeedsController < ApplicationController
     @feed = Feed.where(id: 2).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed)
+      redirect_to action: 'entertainment'
     end 
     if !session[:entertain_list] || session[:entertain_list].length == 0
       session[:entertain_list] = @feed.links.shuffle
@@ -27,6 +29,7 @@ class FeedsController < ApplicationController
     @feed = Feed.where(id: 3).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed)
+      redirect_to action: 'animal'
     end 
     if !session[:animal_list] || session[:animal_list].length == 0
       session[:animal_list] = @feed.links.shuffle
@@ -37,6 +40,7 @@ class FeedsController < ApplicationController
     @feed = Feed.where(id: 4).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed)
+      redirect_to action: 'diy'
     end 
     if !session[:diy_list] || session[:diy_list].length == 0
       session[:diy_list] = @feed.links.shuffle
@@ -47,6 +51,7 @@ class FeedsController < ApplicationController
     @feed = Feed.where(id: 5).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed)
+      redirect_to action: 'rewind'
     end 
     if !session[:rewind_list] || session[:rewind_list].length == 0
       session[:rewind_list] = @feed.links.shuffle
@@ -57,6 +62,7 @@ class FeedsController < ApplicationController
     @feed = Feed.where(id: 6).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed)
+      redirect_to action: 'politics'
     end 
     if !session[:politics_list] || session[:politics_list].length == 0
       session[:politics_list] = @feed.links.shuffle
