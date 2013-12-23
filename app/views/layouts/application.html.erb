@@ -9,6 +9,7 @@
     <meta charset="utf-8">
     <script type="text/javascript">
 
+     
      var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-23019901-1']);
       _gaq.push(['_setDomainName', "bootswatch.com"]);
@@ -29,20 +30,50 @@
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <h1>HotFeed</h1>
+            
+          <h2 id="site-name"><%= link_to 'HotFeed', root_path  %></h2>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <li>
+                <a href="/" class="break-hover"></a>
+              </li>
+              
+          
+              <li>
+                <%= link_to 'Entertainment', entertainment_path, class: "entertainment"%>
+              </li>
+              <li>
+                <%= link_to 'Animals', animal_path, class: "animal"%>
+              </li>
+              <li>
+                <%= link_to 'DIY', diy_path, class: "diy"%>
+              </li>
+              <li>
+                <%= link_to 'Rewind', rewind_path, class: "rewind"%>
+              </li>
+              <li>
+                <%= link_to 'Politics', politics_path, class: "politics"%>
+              </li>
+            </li>
+          </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <br>
             <br>
-            <br>
-            <li>stay entertained.</a></li>
-          
+            <li>stay entertained.</li>
           </ul>
 
         </div>
       </div>
     </div>
+
     <br>
     <br>
     <br>

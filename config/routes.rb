@@ -1,6 +1,19 @@
 HotFeed::Application.routes.draw do
   root 'feeds#index'
 
+  get '/entertainment', :to => 'feeds#entertainment'
+
+  get '/diy', :to => 'feeds#diy'
+
+  get '/animal', :to => 'feeds#animal'
+
+  get '/rewind', :to => 'feeds#rewind'
+
+  get '/politics', :to => 'feeds#politics'
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

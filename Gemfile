@@ -31,6 +31,8 @@ end
 
 gem "nokogiri", "~> 1.6.1"
 
+gem "mechanize", "~> 2.6.0"
+
 gem 'activerecord-session_store'
 
 gem 'anjlab-bootstrap-rails', '~> 3.0.2.0', :require => 'bootstrap-rails'

@@ -1,0 +1,17 @@
+<div class="col-lg-8 col-lg-offset-1">
+  <div class="col-md-8 col-md-offset-3">
+    <button type="button" class="btn btn-default btn-lg btn-block" id="refresh-button"> next, please </button>
+  </div>
+  <br>
+  <div id="hot-div">
+
+    <br>
+    <br>
+    <br>
+      
+    <iframe src=<%= @feed.pop_it_like_its_hot(session[:diy_list]).path %> width="1100" height="700"></iframe>
+    <% if session[:diy_list].length == 0 %>
+      <% session[:diy_list] = @feed.links.shuffle %>
+    <% end %>
+  </div>
+</div>

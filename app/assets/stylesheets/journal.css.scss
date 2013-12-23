@@ -1,5 +1,28 @@
 @import url("//fonts.googleapis.com/css?family=News+Cycle:400,700");
 
+/* custom */
+
+.break-hover:hover {
+  background-color: white !important;
+  font-color: #000 !important ;
+  text-decoration: none !important;
+}
+
+#site-name a:hover {
+  background-color: white !important;
+  text-decoration: none !important;
+}
+
+
+.selected {
+  background: rgb(234,234,234) !important;
+}
+
+
+a:visited {
+  color: #000 !important;
+}
+
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 
 article,
