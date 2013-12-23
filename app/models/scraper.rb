@@ -1,5 +1,6 @@
 require 'open-uri'
 
+#TODO: DRY THIS UP!
 class Scraper < ActiveRecord::Base
   
   def get_hotness
