@@ -1,3 +1,6 @@
+#TODO: DRY Actions
+#TODO: fix view problem, check it out on index.html.erb
+
 class FeedsController < ApplicationController
   before_action :set_feed, only: [ :show, :edit, :update, :destroy]
 
@@ -6,7 +9,7 @@ class FeedsController < ApplicationController
   def index
     @feed = Feed.where(id: 1).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
-      Scraper.new.assign_links_to_feed(@feed)
+      Scraper.new.assign_links_to_feed(@feed, 'hot')
       redirect_to action: 'index'
     end 
     if !session[:hot_list] || session[:hot_list].length == 0
@@ -17,7 +20,7 @@ class FeedsController < ApplicationController
   def entertainment
     @feed = Feed.where(id: 2).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
-      Scraper.new.assign_links_to_feed(@feed)
+      Scraper.new.assign_links_to_feed(@feed, 'entertainment')
       redirect_to action: 'entertainment'
     end 
     if !session[:entertain_list] || session[:entertain_list].length == 0
@@ -28,7 +31,7 @@ class FeedsController < ApplicationController
   def animal
     @feed = Feed.where(id: 3).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
-      Scraper.new.assign_links_to_feed(@feed)
+      Scraper.new.assign_links_to_feed(@feed, 'animals')
       redirect_to action: 'animal'
     end 
     if !session[:animal_list] || session[:animal_list].length == 0
@@ -39,7 +42,7 @@ class FeedsController < ApplicationController
   def diy
     @feed = Feed.where(id: 4).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
-      Scraper.new.assign_links_to_feed(@feed)
+      Scraper.new.assign_links_to_feed(@feed, 'diy')
       redirect_to action: 'diy'
     end 
     if !session[:diy_list] || session[:diy_list].length == 0
@@ -50,7 +53,7 @@ class FeedsController < ApplicationController
   def rewind
     @feed = Feed.where(id: 5).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
-      Scraper.new.assign_links_to_feed(@feed)
+      Scraper.new.assign_links_to_feed(@feed, 'rewind')
       redirect_to action: 'rewind'
     end 
     if !session[:rewind_list] || session[:rewind_list].length == 0
@@ -61,7 +64,7 @@ class FeedsController < ApplicationController
   def politics
     @feed = Feed.where(id: 6).first_or_create
     if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
-      Scraper.new.assign_links_to_feed(@feed)
+      Scraper.new.assign_links_to_feed(@feed, 'politics')
       redirect_to action: 'politics'
     end 
     if !session[:politics_list] || session[:politics_list].length == 0
