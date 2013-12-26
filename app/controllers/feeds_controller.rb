@@ -8,7 +8,7 @@ class FeedsController < ApplicationController
   # GET /feeds.json
   def index
     @feed = Feed.where(id: 1).first_or_create
-    if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
+    if @feed.links.length == 0 || ((Time.now - @feed.links.first.created_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed, 'hot')
       redirect_to action: 'index'
     end 
@@ -19,7 +19,7 @@ class FeedsController < ApplicationController
 
   def entertainment
     @feed = Feed.where(id: 2).first_or_create
-    if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
+    if @feed.links.length == 0 || ((Time.now - @feed.links.first.created_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed, 'entertainment')
       redirect_to action: 'entertainment'
     end 
@@ -30,7 +30,7 @@ class FeedsController < ApplicationController
 
   def animal
     @feed = Feed.where(id: 3).first_or_create
-    if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
+    if @feed.links.length == 0 || ((Time.now - @feed.links.first.created_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed, 'animals')
       redirect_to action: 'animal'
     end 
@@ -41,7 +41,7 @@ class FeedsController < ApplicationController
 
   def diy
     @feed = Feed.where(id: 4).first_or_create
-    if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
+    if @feed.links.length == 0 || ((Time.now - @feed.links.first.created_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed, 'diy')
       redirect_to action: 'diy'
     end 
@@ -52,7 +52,7 @@ class FeedsController < ApplicationController
 
   def rewind
     @feed = Feed.where(id: 5).first_or_create
-    if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
+    if @feed.links.length == 0 || ((Time.now - @feed.links.first.created_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed, 'rewind')
       redirect_to action: 'rewind'
     end 
@@ -63,7 +63,7 @@ class FeedsController < ApplicationController
 
   def politics
     @feed = Feed.where(id: 6).first_or_create
-    if @feed.links.length == 0 || ((Time.now - @feed.links.first.updated_at) >= 2700)
+    if @feed.links.length == 0 || ((Time.now - @feed.links.first.created_at) >= 2700)
       Scraper.new.assign_links_to_feed(@feed, 'politics')
       redirect_to action: 'politics'
     end 
